@@ -9,9 +9,17 @@ SimpleCov.start do
 end
 
 $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+
 require "solid/adapters"
 
+Dir[File.expand_path("support/**/*.rb", __dir__)]
+  .sort
+  .reject { |file| file.match?((RUBY_VERSION >= "3.0.0") ? /2_7/ : /gte_3/) }
+  .each { |file| require file }
+
 require "minitest/autorun"
+
+require "mocha/minitest"
 
 class Minitest::Test
   # Implementation based on:
