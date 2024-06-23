@@ -1,0 +1,66 @@
+# frozen_string_literal: true
+
+if RUBY_VERSION <= "3.1"
+  puts "This example requires Ruby 3.1 or higher."
+  exit! 1
+end
+
+require_relative "config"
+
+require_relative "test/user_test/repository"
+
+task :default do
+  puts
+  puts "------------------"
+  puts "Ports and Adapters"
+  puts "------------------"
+
+  # -- User creation instances
+
+  db_creation = User::Creation.new(repository: User::Record::Repository)
+
+  memory_creation = User::Creation.new(repository: UserTest::Repository.new)
+
+  puts
+  puts "--  Valid input  --"
+  puts
+
+  db_creation.call(name: "Jane", email: "jane@foo.com")
+
+  memory_creation.call(name: "John", email: "john@bar.com")
+
+  puts
+  puts "--  Invalid input  --"
+  puts
+
+  db_creation.call(name: "Jane", email: nil)
+
+  memory_creation.call(name: "", email: nil)
+end
+
+# Output sample: rake SOLID_ADAPTERS_ENABLED=true
+#
+# --  Valid input  --
+#
+# Created user: #<struct User::Data id=1, name="Jane", email="jane@foo.com">
+# Created user: #<struct User::Data id=1, name="John", email="john@bar.com">
+#
+# --  Invalid input  --
+#
+# rake aborted!
+# NoMatchingPatternError: nil: String === nil does not return true (NoMatchingPatternError)
+# /.../lib/user/repository.rb:9:in `create'
+# /.../lib/user/creation.rb:12:in `call'
+# /.../Rakefile:36:in `block in <top (required)>'
+
+# Output sample: rake SOLID_ADAPTERS_ENABLED=false
+#
+# --  Valid input  --
+#
+# Created user: #<struct User::Data id=1, name="Jane", email="jane@foo.com">
+# Created user: #<struct User::Data id=1, name="John", email="john@bar.com">
+#
+# --  Invalid input  --
+#
+# Created user: #<struct User::Data id=2, name="Jane", email=nil>
+# Created user: #<struct User::Data id=3, name="", email=nil>
