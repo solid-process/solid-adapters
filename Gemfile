@@ -11,4 +11,6 @@ gem "standard", "~> 1.37"
 
 gem "minitest", "~> 5.24"
 
+gem "mocha", "~> 2.4", require: false
+
 gem "simplecov", "~> 0.22.0", require: false
