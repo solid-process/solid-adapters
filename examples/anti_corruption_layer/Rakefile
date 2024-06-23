@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+if RUBY_VERSION <= '3.1'
+  puts 'This example requires Ruby 3.1 or higher.'
+  exit! 1
+end
+
+require_relative 'config'
+
+task :default do
+  puts '====================='
+  puts 'Anti Corruption Layer'
+  puts '====================='
+
+  puts
+  puts '--  CircleUp  --'
+  puts
+
+  circle_up_gateway = PaymentGateways::Adapters::CircleUp.new
+
+  p Payment::ChargeCreditCard.new(circle_up_gateway).call(amount: 100)
+
+  puts
+  puts '--  PayFriend  --'
+  puts
+
+  pay_friend_gateway = PaymentGateways::Adapters::PayFriend.new
+
+  p Payment::ChargeCreditCard.new(pay_friend_gateway).call(amount: 200)
+end
