@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [1.0.0] - 2024-06-23
+
 ### Added
 
 - Add `Solid::Adapters::Interface`
