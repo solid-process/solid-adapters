@@ -1,4 +1,11 @@
-- [🛡️ Anti-Corruption Layer Example](#️-anti-corruption-layer-example)
+<small>
+
+> `MENU` [README](../../README.md) | [Examples](../README.md)
+
+</small>
+
+## 🛡️ Anti-Corruption Layer Example <!-- omit from toc -->
+
 - [The ACL](#the-acl)
   - [🤔 How does it work?](#-how-does-it-work)
     - [📜 The Contract](#-the-contract)
@@ -7,8 +14,6 @@
   - [How much to do this (create ACL)?](#how-much-to-do-this-create-acl)
   - [Is it worth the overhead of contract checking at runtime?](#is-it-worth-the-overhead-of-contract-checking-at-runtime)
 - [🏃‍♂️ How to run the application?](#️-how-to-run-the-application)
-
-## 🛡️ Anti-Corruption Layer Example
 
 The **Anti-Corruption Layer**, or ACL, is a pattern that isolates and protects a system from legacy or dependencies out of its control. It acts as a mediator, translating and adapting data between different components, ensuring they communicate without corrupting each other's data or logic.
 

@@ -1,12 +1,15 @@
-- [🧩 Ports and Adapters Example](#-ports-and-adapters-example)
-  - [The Port](#the-port)
-  - [The Adapters](#the-adapters)
+<small>
+
+> `MENU` [README](../../README.md) | [Examples](../README.md)
+
+</small>
+
+## 🔌 Ports and Adapters Example <!-- omit from toc -->
+
 - [⚖️ What is the benefit of doing this?](#️-what-is-the-benefit-of-doing-this)
   - [How much to do this (create Ports and Adapters)?](#how-much-to-do-this-create-ports-and-adapters)
   - [Is it worth the overhead of contract checking at runtime?](#is-it-worth-the-overhead-of-contract-checking-at-runtime)
 - [🏃‍♂️ How to run the application?](#️-how-to-run-the-application)
-
-## 🧩 Ports and Adapters Example
 
 Ports and Adapters is an architectural pattern that separates the application's core logic (Ports) from external dependencies (Adapters).
 
