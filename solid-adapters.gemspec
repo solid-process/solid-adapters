@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Rodrigo Serradura"]
   spec.email = ["rodrigo.serradura@gmail.com"]
 
-  spec.summary = "Write interface checkers using pure Ruby."
-  spec.description = "Write interface checkers using pure Ruby."
+  spec.summary = "Write interface contracts using pure Ruby."
+  spec.description = "Write interface contracts using pure Ruby."
   spec.homepage = "https://github.com/serradura/solid-adapters"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
